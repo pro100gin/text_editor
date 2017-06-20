@@ -1,7 +1,2 @@
-vpath %.h ../include/
-
-all: init.c readData.c
-		
-init.c: init.h readData.h
-
-readData.c: readData.h
+of: open_file.c
+		gcc $<  -o of -l ncurses -std=c99
