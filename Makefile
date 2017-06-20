@@ -5,14 +5,14 @@ vpath %.h include
 vpath %.o src:lib
 
 SUBDIRS = lib src
-OBJECTS = init.o readData.o main.o
+OBJECTS = init.o read_file.o main.o
 
-CFLAGS = -std=c99
+CFLAGS = -O2 -Wall -pedantic -ansi
 LDFLAGS = -l ncurses
 
 
 all: prepare $(OBJECTS)
-		gcc -o fm $(OBJECTS) $(CFLAGS) $(LDFLAGS)
+		gcc -o of $(OBJECTS) $(CFLAGS) $(LDFLAGS) -g
 
 prepare: $(SUBDIRS)
 $(SUBDIRS):
@@ -21,4 +21,5 @@ $(SUBDIRS):
 src: lib
 
 clean:
-		rm -rf *.o fm
+		clear
+		rm -rf *.o of
